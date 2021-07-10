@@ -38,6 +38,7 @@ def decrypt(cipher):
             plaintext += int(cipher[i])*cipher[i+1]
         except ValueError:
             continue
+            
     return plaintext
 
 a = "AAAABBBCCDAA"
