@@ -1,3 +1,4 @@
+#Difficulty: Easy
 #Problem statement
 
 """Compute the running median of a sequence of numbers.
