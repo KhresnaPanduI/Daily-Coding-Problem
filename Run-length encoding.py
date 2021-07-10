@@ -12,3 +12,22 @@ You can assume the string to be decoded is valid.
 """
 
 #Solution
+
+def encrypt(text):
+    ciphertext = ''
+    temp = 1
+    print(len(text))
+    print(len(text) - 1)
+    for i in range(len(text) - 1):
+        if text[i] == text[i+1]:
+            temp += 1
+        else:
+            ciphertext += str(temp)
+            ciphertext += text[i]
+            temp = 1
+    return ciphertext
+
+a = "AAAABBBCCDAA"
+print(len(a))
+print(encrypt(a))
+
