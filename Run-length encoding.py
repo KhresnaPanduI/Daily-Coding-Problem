@@ -30,7 +30,22 @@ def encrypt(text):
 
     return ciphertext
 
+def decrypt(cipher):
+    plaintext = ""
+    for i in range(len(cipher) - 1):
+        try:
+            int(cipher[i])
+            plaintext += int(cipher[i])*cipher[i+1]
+        except ValueError:
+            continue
+    return plaintext
+
 a = "AAAABBBCCDAA"
-print(encrypt(a))
+print("Plaintext: ", a)
+print('Encrypted: ', encrypt(a))
+
+a = encrypt(a)
+print('Decrypted: ', decrypt(a))
+
 
 
