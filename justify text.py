@@ -1,6 +1,5 @@
 #Difficulty: Medium
 #Problem statement
-
 """This problem was asked by Palantir.
 
 Write an algorithm to justify text. Given a sequence of words and an integer line length k,
@@ -27,9 +26,34 @@ def justify(words, k):
 
     #count each word length and assign to dictionary
     word_length = dict()
+    total = 0
     for item in words:
         word_length[item] = len(item)
+        total += len(item)
+
+    #Split each word to k-char
+    import  math
+
+    for i in range(math.ceil(total/k)):
+        for word in words:
+            res.append("")
+            if len(res[i]) <= 16:
+                res[i] += word
+                res[i] += ' '
+                words.remove(word)
+
     print(word_length)
-    #for i in range(k):
+    print(res)
+    print(total)
+    print(math.ceil(total/k))
+
 
 justify(["the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"], 16)
+
+cek = list()
+print(cek)
+cek.append("")
+cek[0] += 'tes'
+cek.append("")
+cek[1] += 'tes2'
+print(cek)
