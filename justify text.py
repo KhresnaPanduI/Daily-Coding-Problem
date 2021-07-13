@@ -25,35 +25,35 @@ def justify(words, k):
     res = list() #result list
 
     #count each word length and assign to dictionary
+
     word_length = dict()
     total = 0
     for item in words:
         word_length[item] = len(item)
         total += len(item)
 
+
     #Split each word to k-char
     import  math
+    lines = math.ceil(total/k)
+    word_each_line = math.ceil(len(words)/lines)
 
-    for i in range(math.ceil(total/k)):
+    for i in range(lines):
+        res.append("")
+        word_counter = word_each_line
         for word in words:
-            res.append("")
-            if len(res[i]) <= 16:
+            if len(res[i]) <= 16 and word_counter > 0:
                 res[i] += word
                 res[i] += ' '
+                word_counter -= 1
                 words.remove(word)
 
+    print(word_each_line)
     print(word_length)
     print(res)
     print(total)
     print(math.ceil(total/k))
+    print(words)
 
 
 justify(["the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"], 16)
-
-cek = list()
-print(cek)
-cek.append("")
-cek[0] += 'tes'
-cek.append("")
-cek[1] += 'tes2'
-print(cek)
