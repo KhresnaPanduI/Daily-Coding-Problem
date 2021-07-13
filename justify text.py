@@ -1,4 +1,3 @@
-
 #Difficulty: Medium
 #Problem statement
 
@@ -13,7 +12,8 @@ with the extra spaces, if any, distributed starting from the left.
 If you can only fit one word on a line, then you should pad the right-hand side with spaces.
 Each word is guaranteed not to be longer than k.
 
-For example, given the list of words ["the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"] and k = 16, you should return the following:
+For example, given the list of words ["the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"]
+and k = 16, you should return the following:
 
 ["the  quick brown", # 1 extra space on the left
 "fox  jumps  over", # 2 extra spaces distributed evenly
@@ -21,3 +21,15 @@ For example, given the list of words ["the", "quick", "brown", "fox", "jumps", "
 """
 
 #Solution
+
+def justify(words, k):
+    res = list() #result list
+
+    #count each word length and assign to dictionary
+    word_length = dict()
+    for item in words:
+        word_length[item] = len(item)
+    print(word_length)
+    #for i in range(k):
+
+justify(["the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"], 16)
