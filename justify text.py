@@ -25,7 +25,6 @@ def justify(words, k):
     res = list() #result list
 
     #count each word length and assign to dictionary
-
     word_length = dict()
     total = 0
     for item in words:
@@ -41,12 +40,35 @@ def justify(words, k):
     for i in range(lines):
         res.append("")
         word_counter = word_each_line
+
+        j = 0
         for word in words:
-            if len(res[i]) <= 16 and word_counter > 0:
-                res[i] += word
+            print('ini words', words)
+            if len(res[i]) <= k and word_counter > 0:
+                #print('ini word_counter' + str(word_counter) + 'ini len(res[i]' + str(len(res[i])) +''+ str(k))
+
+                print('ini words[' + str(j) + ']' + str(words[j]))
+                res[i] += words[j]
                 res[i] += ' '
                 word_counter -= 1
-                words.remove(word)
+                words.pop(j)
+
+
+        '''
+
+        len_word = len(words)
+        j = 0
+        while(j < len_word):
+            if len(res[i]) <= k and word_counter > 0:
+                res[i] += words[j]
+                print("ini word [" + str(j) + str(words[j]))
+                res[i] += ' '
+                word_counter -= 1
+                words.pop(j)
+                len_word -= 1
+            j += 1
+        '''
+
 
     print(word_each_line)
     print(word_length)
@@ -55,5 +77,18 @@ def justify(words, k):
     print(math.ceil(total/k))
     print(words)
 
+words = ["the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"]
+justify(words, 16)
+words_test = ["the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"]
 
-justify(["the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"], 16)
+newlist = list()
+for word in words_test:
+
+    print('ini word', word)
+    print('ini word[0]', words_test[0])
+    print('word test sebelum delete:', words_test)
+    words_test.pop(0)
+    print('word test setelah delete: ', words_test)
+    print()
+
+
